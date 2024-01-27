@@ -6,7 +6,7 @@
 /*   By: mlezcano <mlezcano@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/21 11:11:53 by mlezcano          #+#    #+#             */
-/*   Updated: 2024/01/27 12:36:23 by mlezcano         ###   ########.fr       */
+/*   Updated: 2024/01/27 13:37:04 by mlezcano         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,7 +68,7 @@ void	ps_sort_three_a(t_stacks *s)
 
 int	ps_sort(t_stacks *stack, int len)
 {
-	if (ps_is_sorted(stack->a, stack->size_a, ASCENDING) == 0)
+	if (ps_is_sorted(stack->a, stack->size_a, ASC) == 0)
 	{
 		if (len == 2)
 			sa(stack, OPT);

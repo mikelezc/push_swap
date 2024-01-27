@@ -6,7 +6,7 @@
 /*   By: mlezcano <mlezcano@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/21 11:17:10 by mlezcano          #+#    #+#             */
-/*   Updated: 2024/01/26 13:14:34 by mlezcano         ###   ########.fr       */
+/*   Updated: 2024/01/27 13:36:33 by mlezcano         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ void	ft_checker(t_stacks *stack)
 		opt = get_next_line(0);
 		if (ft_strcmp(opt, "\n"))
 		{
-			if (ft_check_sorted(stack->a, stack->size_a, ASCENDING)
+			if (ft_check_sorted(stack->a, stack->size_a, ASC)
 				&& stack->size_b == 0)
 				ft_printf("\033[0;32mOK\n");
 			else

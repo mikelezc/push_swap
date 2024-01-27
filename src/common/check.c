@@ -6,7 +6,7 @@
 /*   By: mlezcano <mlezcano@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/21 19:48:29 by mlezcano          #+#    #+#             */
-/*   Updated: 2024/01/27 12:18:53 by mlezcano         ###   ########.fr       */
+/*   Updated: 2024/01/27 13:36:37 by mlezcano         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ int	ps_is_sorted(int *stack, int size, int order)
 {
 	int	i;
 
-	if (order == ASCENDING)
+	if (order == ASC)
 	{
 		i = 1;
 		while (i < size)

@@ -6,7 +6,7 @@
 /*   By: mlezcano <mlezcano@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/21 11:08:58 by mlezcano          #+#    #+#             */
-/*   Updated: 2024/01/27 12:18:37 by mlezcano         ###   ########.fr       */
+/*   Updated: 2024/01/27 13:41:11 by mlezcano         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,8 +26,8 @@ typedef struct s_stacks
 	int	size_b;
 }	t_stacks;
 
-# define ASCENDING 0
-# define DESCENDING 1
+# define ASC 0
+# define DES 1
 # define OPT 0
 # define STACK 1
 

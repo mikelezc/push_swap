@@ -6,7 +6,7 @@
 /*   By: mlezcano <mlezcano@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/21 11:11:31 by mlezcano          #+#    #+#             */
-/*   Updated: 2024/01/27 12:40:39 by mlezcano         ###   ########.fr       */
+/*   Updated: 2024/01/27 13:37:55 by mlezcano         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,7 +91,7 @@ int	ps_quick_sort_b(t_stacks *stack, int len, int counter)
 	int	pivot;
 	int	items;
 
-	if (counter == 0 && ps_is_sorted(stack->b, len, DESCENDING) == 1)
+	if (counter == 0 && ps_is_sorted(stack->b, len, DES) == 1)
 		while (len--)
 			pa(stack, OPT);
 	if (len <= 3)
@@ -120,7 +120,7 @@ int	ps_quick_sort_a(t_stacks *stack, int len, int counter)
 	int	pivot;
 	int	items;
 
-	if (ps_is_sorted(stack->a, len, ASCENDING) == 1)
+	if (ps_is_sorted(stack->a, len, ASC) == 1)
 		return (1);
 	items = len;
 	if (len <= 3)
