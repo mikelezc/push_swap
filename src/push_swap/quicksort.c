@@ -6,7 +6,7 @@
 /*   By: mlezcano <mlezcano@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/21 11:11:31 by mlezcano          #+#    #+#             */
-/*   Updated: 2024/01/26 13:12:29 by mlezcano         ###   ########.fr       */
+/*   Updated: 2024/01/27 12:40:39 by mlezcano         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,32 +66,32 @@ int	ft_sort_small_b(t_stacks *s, int len)
 	return (0);
 }
 
-int	ft_get_mediane(int *pivot, int *stack, int size)
+int	ps_find_pivot(int *pivot, int *stack, int len)
 {
 	int		*tmp_stack;
 	int		i;
 
-	tmp_stack = (int *)malloc(size * sizeof(int));
+	tmp_stack = (int *)malloc(len * sizeof(int));
 	if (!tmp_stack)
 		return (0);
 	i = 0;
-	while (i < size)
+	while (i < len)
 	{
 		tmp_stack[i] = stack[i];
 		i++;
 	}
-	ps_sort_tmp(tmp_stack, size);
-	*pivot = tmp_stack[size / 2];
+	ps_bubble_sort(tmp_stack, len);
+	*pivot = tmp_stack[len / 2];
 	free(tmp_stack);
 	return (1);
 }
 
-int	ft_quicksort_b(t_stacks *stack, int len, int counter)
+int	ps_quick_sort_b(t_stacks *stack, int len, int counter)
 {
 	int	pivot;
 	int	items;
 
-	if (!counter && ps_is_sorted(stack->b, len, DESCENDING) == 1)
+	if (counter == 0 && ps_is_sorted(stack->b, len, DESCENDING) == 1)
 		while (len--)
 			pa(stack, OPT);
 	if (len <= 3)
@@ -100,7 +100,7 @@ int	ft_quicksort_b(t_stacks *stack, int len, int counter)
 		return (1);
 	}
 	items = len;
-	if (!ft_get_mediane(&pivot, stack->b, len))
+	if (!ps_find_pivot(&pivot, stack->b, len))
 		return (0);
 	while (len != items / 2)
 	{
@@ -111,11 +111,11 @@ int	ft_quicksort_b(t_stacks *stack, int len, int counter)
 	}
 	while (items / 2 != stack->size_b && counter--)
 		rrb(stack, OPT);
-	return (ft_quicksort_a(stack, items / 2 + items % 2, 0)
-		&& ft_quicksort_b(stack, items / 2, 0));
+	return (ps_quick_sort_a(stack, items / 2 + items % 2, 0)
+		&& ps_quick_sort_b(stack, items / 2, 0));
 }
 
-int	ft_quicksort_a(t_stacks *stack, int len, int counter)
+int	ps_quick_sort_a(t_stacks *stack, int len, int counter)
 {
 	int	pivot;
 	int	items;
@@ -128,7 +128,7 @@ int	ft_quicksort_a(t_stacks *stack, int len, int counter)
 		ft_quicksort_3(stack, len);
 		return (1);
 	}
-	if (!counter && !ft_get_mediane(&pivot, stack->a, len))
+	if (counter == 0 && !ps_find_pivot(&pivot, stack->a, len))
 		return (0);
 	while (len != items / 2 + items % 2)
 	{
@@ -139,7 +139,7 @@ int	ft_quicksort_a(t_stacks *stack, int len, int counter)
 	}
 	while (items / 2 + items % 2 != stack->size_a && counter--)
 		rra(stack, OPT);
-	return (ft_quicksort_a(stack, items / 2 + items % 2, 0)
-		&& ft_quicksort_b(stack, items / 2, 0));
+	return (ps_quick_sort_a(stack, items / 2 + items % 2, 0)
+		&& ps_quick_sort_b(stack, items / 2, 0));
 	return (1);
 }

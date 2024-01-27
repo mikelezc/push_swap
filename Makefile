@@ -6,25 +6,36 @@
 #    By: mlezcano <mlezcano@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/01/21 11:17:56 by mlezcano          #+#    #+#              #
-#    Updated: 2024/01/26 13:22:52 by mlezcano         ###   ########.fr        #
+#    Updated: 2024/01/27 11:24:31 by mlezcano         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 SHELL		=	/bin/bash
 
-NAME		= push_swap
-BNAME		= checker
-INC			= inc
-HEADER		= -I inc
-LIBFT		= libft
-SRC_DIR		= src/
-OBJ_DIR		= obj/
+#compiler
+
 CC			= gcc
 CFLAGS		= -Wall -Werror -Wextra -g
-FSANITIZE	= -fsanitize=address -g3
 RM			= rm -f
 ECHO		= echo -e
 
+#output
+NAME		= push_swap
+
+#directories
+SRC_DIR		= src/
+OBJ_DIR		= obj/
+
+#include
+INC			= inc
+BNAME		= checker
+HEADER		= -I inc
+LIBFT		= libft
+
+
+FSANITIZE	= -fsanitize=address -g3
+
+#colors
 DEF_COLOR	=	\033[0;39m
 ORANGE		=	\033[0;33m
 GRAY		=	\033[0;90m
@@ -36,11 +47,14 @@ MAGENTA		=	\033[0;95m
 CYAN		=	\033[0;96m
 WHITE		=	\033[0;97m
 
+#src directories
 PSW_DIR		=	push_swap/
-MAND_FILES	=	push_swap sortage quicksort
 COMM_DIR	=	common/
-COMM_FILES	=	swap_moves rotation_moves rev_rot_moves push_moves check
 BONUS_DIR	=	bonus/
+
+#src files
+MAND_FILES	=	push_swap sortage quicksort
+COMM_FILES	=	swap_moves rotation_moves rev_rot_moves push_moves check
 BONUS_FILES	=	checker bonus_utils
 
 SRC_FILES	=	$(addprefix $(PSW_DIR), $(MAND_FILES))
@@ -59,23 +73,23 @@ BOBJ 		= 	$(addprefix $(OBJ_DIR), $(addsuffix .o, $(SRC_BFILES)))
 OBJF		=	.cache_exists
 
 start:
-			@$(ECHO) -n "$(YELLOW)[Dependencies]:\t$(DEF_COLOR)"
-			@$(ECHO) -n "$(RED)[$(DEF_COLOR)"
+			@$(ECHO) -n "$(GREEN)[Dependencies]:\t$(DEF_COLOR)"
+			@$(ECHO) -n "$(WHITE)[$(DEF_COLOR)"
 			@make all
 
 all:		$(NAME)
 
 $(NAME):	$(OBJ) $(COBJ) $(OBJF)
-			@$(ECHO) -n "$(RED)]$(DEF_COLOR)"
-			@$(ECHO) -n "$(GREEN) => 100%$(DEF_COLOR)\n"
+			@$(ECHO) -n "$(WHITE)]$(DEF_COLOR)"
+			@$(ECHO) -n "$(GREEN) => OK!$(DEF_COLOR)\n"
 			@make -C $(LIBFT)
 			@cp libft/libft.a .
-			@$(ECHO) -n "$(YELLOW)[$(NAME)]:\t$(DEF_COLOR)"
+			@$(ECHO) -n "$(GREEN)[$(NAME)]:\t$(DEF_COLOR)"
 			@$(CC) $(CFLAGS) $(OBJ) $(COBJ) $(HEADER) libft.a -o $(NAME)
-			@$(ECHO) "$(GREEN) => Success!$(DEF_COLOR)"
+			@$(ECHO) "$(GREEN) => OK!$(DEF_COLOR)"
 
 $(OBJ_DIR)%.o: $(SRC_DIR)%.c $(OBJF)
-			@$(ECHO) -n "$(ORANGE)=$(DEF_COLOR)"
+			@$(ECHO) -n "$(DEF_COLOR)=$(DEF_COLOR)"
 			@$(CC) $(CFLAGS) $(HEADER) -c $< -o $@
 
 $(OBJF):
@@ -88,7 +102,7 @@ $(OBJF):
 clean:
 			@$(RM) -r $(OBJ_DIR)
 			@make clean -C $(LIBFT)
-			@$(ECHO) -n "$(BLUE)[push_swap]:\tobject files$(DEF_COLOR)$(GREEN)  => Cleaned!$(DEF_COLOR)\n"
+			@$(ECHO) -n "$(RED)[push_swap]:\tobject files$(DEF_COLOR)$(YELLOW)  => Clean$(DEF_COLOR)\n"
 			@$(RM) $(OBJF)
 
 fclean:		clean
@@ -98,8 +112,8 @@ fclean:		clean
 			@$(RM) $(LIBFT)/libft.a
 			@rm -rf *.dSYM
 			@find . -name ".DS_Store" -delete
-			@$(ECHO) -n "$(CYAN)[LIBFT]:\texec. files$(DEF_COLOR)$(GREEN)  => Cleaned!$(DEF_COLOR)\n"
-			@$(ECHO) -n "$(CYAN)[push_swap]:\texec. files$(DEF_COLOR)$(GREEN)  => Cleaned!$(DEF_COLOR)\n"
+			@$(ECHO) -n "$(RED)[LIBFT]:\texec. files$(DEF_COLOR)$(YELLOW)  => Clean$(DEF_COLOR)\n"
+			@$(ECHO) -n "$(RED)[push_swap]:\texec. files$(DEF_COLOR)$(YELLOW)  => Clean$(DEF_COLOR)\n"
 
 
 re:			fclean all

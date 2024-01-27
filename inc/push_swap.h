@@ -6,7 +6,7 @@
 /*   By: mlezcano <mlezcano@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/21 11:08:58 by mlezcano          #+#    #+#             */
-/*   Updated: 2024/01/27 10:37:51 by mlezcano         ###   ########.fr       */
+/*   Updated: 2024/01/27 12:18:37 by mlezcano         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ typedef struct s_stacks
 void	push_swap(char **argv);
 
 //Check
-int		ps_arr_size(char **argv);
+int		ps_arr_len(char **argv);
 void	ps_error(int *stack);
 int		ps_atoi_lim(char *str, int *stack);
 void	ps_is_repeat(int *stack, int size);
@@ -44,15 +44,15 @@ int		ps_is_sorted(int *pile, int size, int order);
 //Sortage
 int		ps_sort(t_stacks *stack, int size);
 void	ps_sort_three_a(t_stacks *s);
-void	ps_sort_tmp(int *tmp_stack, int size);
+void	ps_bubble_sort(int *tmp_stack, int size);
 int		ps_push(t_stacks *stack, int len, int operation);
 
 //Quicksort
-int		ft_quicksort_a(t_stacks *stack, int size, int counter);
-int		ft_quicksort_b(t_stacks *stack, int len, int counter);
+int		ps_quick_sort_a(t_stacks *stack, int size, int counter);
+int		ps_quick_sort_b(t_stacks *stack, int len, int counter);
 void	ft_quicksort_3(t_stacks *stack, int len);
 int		ft_sort_small_b(t_stacks *stack, int len);
-int		ft_get_mediane(int *pivot, int *stack, int size);
+int		ps_find_pivot(int *pivot, int *stack, int size);
 
 //Operations
 void	sa(t_stacks *stack, int print);

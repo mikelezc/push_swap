@@ -6,7 +6,7 @@
 /*   By: mlezcano <mlezcano@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/21 11:08:05 by mlezcano          #+#    #+#             */
-/*   Updated: 2024/01/26 13:14:41 by mlezcano         ###   ########.fr       */
+/*   Updated: 2024/01/27 12:35:52 by mlezcano         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,26 +15,26 @@
 void	push_swap(char **argv)
 {
 	int			i;
-	int			size;
+	int			len;
 	t_stacks	stack;
 
 	i = -1;
-	size = ps_arr_size(argv);
-	stack.a = malloc(size * sizeof(int));
+	len = ps_arr_len(argv);
+	stack.a = malloc(len * sizeof(int));
 	if (!stack.a)
 		return ;
-	stack.size_a = size;
-	stack.b = malloc(size * sizeof(int));
+	stack.size_a = len;
+	stack.b = malloc(len * sizeof(int));
 	if (!stack.b)
 	{
 		free(stack.a);
 		return ;
 	}
 	stack.size_b = 0;
-	while (++i < size)
+	while (++i < len)
 		stack.a[i] = ps_atoi_lim(argv[i], stack.a);
-	ps_is_repeat(stack.a, size);
-	ps_sort(&stack, size);
+	ps_is_repeat(stack.a, len);
+	ps_sort(&stack, len);
 	free(stack.a);
 	free(stack.b);
 }

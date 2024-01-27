@@ -6,13 +6,13 @@
 /*   By: mlezcano <mlezcano@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/21 11:11:53 by mlezcano          #+#    #+#             */
-/*   Updated: 2024/01/26 13:12:33 by mlezcano         ###   ########.fr       */
+/*   Updated: 2024/01/27 12:36:23 by mlezcano         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/push_swap.h"
 
-void	ps_sort_tmp(int *tmp_stack, int size)
+void	ps_bubble_sort(int *tmp_stack, int size)
 {
 	int	i;
 	int	j;
@@ -66,16 +66,16 @@ void	ps_sort_three_a(t_stacks *s)
 		rra(s, OPT);
 }
 
-int	ps_sort(t_stacks *stack, int size)
+int	ps_sort(t_stacks *stack, int len)
 {
 	if (ps_is_sorted(stack->a, stack->size_a, ASCENDING) == 0)
 	{
-		if (size == 2)
+		if (len == 2)
 			sa(stack, OPT);
-		else if (size == 3)
+		else if (len == 3)
 			ps_sort_three_a(stack);
 		else
-			ft_quicksort_a(stack, size, 0);
+			ps_quick_sort_a(stack, len, 0);
 	}
 	return (0);
 }
