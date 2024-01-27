@@ -6,7 +6,7 @@
 #    By: mlezcano <mlezcano@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/01/21 11:17:56 by mlezcano          #+#    #+#              #
-#    Updated: 2024/01/27 11:24:31 by mlezcano         ###   ########.fr        #
+#    Updated: 2024/01/27 21:57:30 by mlezcano         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -49,26 +49,20 @@ WHITE		=	\033[0;97m
 
 #src directories
 PSW_DIR		=	push_swap/
-COMM_DIR	=	common/
-BONUS_DIR	=	bonus/
+MOV_DIR		=	movements/
 
 #src files
-MAND_FILES	=	push_swap sortage quicksort
-COMM_FILES	=	swap_moves rotation_moves rev_rot_moves push_moves check
-BONUS_FILES	=	checker bonus_utils
+MAND_FILES	=	push_swap sort quick_sort quick_sort_utils check
+MOV_FILES	=	swap_moves rotation_moves rev_rot_moves push_moves
 
 SRC_FILES	=	$(addprefix $(PSW_DIR), $(MAND_FILES))
-COM_FILES	=	$(addprefix $(COMM_DIR), $(COMM_FILES))
-SRC_BFILES	=	$(addprefix $(BONUS_DIR), $(BONUS_FILES))
+COM_FILES	=	$(addprefix $(MOV_DIR), $(MOV_FILES))
 
 SRC 		= 	$(addprefix $(SRC_DIR), $(addsuffix .c, $(SRC_FILES)))
 OBJ 		= 	$(addprefix $(OBJ_DIR), $(addsuffix .o, $(SRC_FILES)))
 
 COMMON 		= 	$(addprefix $(SRC_DIR), $(addsuffix .c, $(COM_FILES)))
 COBJ 		= 	$(addprefix $(OBJ_DIR), $(addsuffix .o, $(COM_FILES)))
-
-BSRC		=	$(addprefix $(SRC_DIR), $(addsuffix .c, $(SRC_BFILES)))
-BOBJ 		= 	$(addprefix $(OBJ_DIR), $(addsuffix .o, $(SRC_BFILES)))
 
 OBJF		=	.cache_exists
 
@@ -95,7 +89,7 @@ $(OBJ_DIR)%.o: $(SRC_DIR)%.c $(OBJF)
 $(OBJF):
 			@mkdir -p $(OBJ_DIR)
 			@mkdir -p $(OBJ_DIR)$(PSW_DIR)
-			@mkdir -p $(OBJ_DIR)$(COMM_DIR)
+			@mkdir -p $(OBJ_DIR)$(MOV_DIR)
 			@mkdir -p $(OBJ_DIR)$(BONUS_DIR)
 			@touch $(OBJF)
 
@@ -119,24 +113,4 @@ fclean:		clean
 re:			fclean all
 			@$(ECHO) -n "$(GREEN)Cleaned and rebuilt everything for [push_swap]!$(DEF_COLOR)\n"
 
-bonus:
-			@$(ECHO) -n "$(YELLOW)[Dependencies]:\t$(DEF_COLOR)"
-			@$(ECHO) -n "$(RED)[$(DEF_COLOR)"
-			@make allbonus
-
-allbonus:		$(BNAME)
-
-$(BNAME):	$(BOBJ) $(COBJ)
-			@$(ECHO) -n "$(RED)]$(DEF_COLOR)"
-			@$(ECHO) -n "$(GREEN) => 100%$(DEF_COLOR)\n"
-			@make -C $(LIBFT)
-			@cp libft/libft.a .
-			@$(ECHO) -n "$(YELLOW)[$(BNAME)]:\t$(DEF_COLOR)"
-			@$(CC) $(CFLAGS) $(BSRC) $(COMMON) $(HEADER) libft.a -o $(BNAME)
-			@$(ECHO) "$(GREEN) => Success!$(DEF_COLOR)"
-
-norm:
-			@clear
-			@norminette $(SRC) $(INC) $(LIBFT) | grep -v Norme -B1 || true
-
-.PHONY:		all clean fclean re norm
+.PHONY:		all clean fclean re

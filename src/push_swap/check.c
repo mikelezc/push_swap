@@ -6,7 +6,7 @@
 /*   By: mlezcano <mlezcano@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/21 19:48:29 by mlezcano          #+#    #+#             */
-/*   Updated: 2024/01/27 13:36:37 by mlezcano         ###   ########.fr       */
+/*   Updated: 2024/01/27 21:50:25 by mlezcano         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ int	ps_is_sorted(int *stack, int size, int order)
 	}
 }
 
-void	ps_error(int *stack)
+void	ps_error_msg(int *stack)
 {
 	free(stack);
 	ft_printf("Error\n");
@@ -59,7 +59,7 @@ void	ps_is_repeat(int *stack, int size)
 		while (j < size)
 		{
 			if (stack[i] == stack[j])
-				ps_error(stack);
+				ps_error_msg(stack);
 			j++;
 		}
 		i++;
@@ -85,12 +85,13 @@ int	ps_atoi_lim(char *str, int *stack)
 	while (str[i])
 	{
 		if (str[i] < '0' || str[i] > '9')
-			ps_error(stack);
+			ps_error_msg(stack);
 		num = (str[i] - '0') + (num * 10);
 		i++;
 	}
-	if ((num > 2147483648 && sign == -1) || (num > 2147483647 && sign == 1))
-		ps_error(stack);
+	if ((num > 2147483648 && sign == -1) || (num > 2147483647 && sign == 1)
+		|| (num == 0 && sign == -1))
+		ps_error_msg(stack);
 	return (num * sign);
 }
 

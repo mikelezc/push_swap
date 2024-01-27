@@ -6,7 +6,7 @@
 /*   By: mlezcano <mlezcano@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/21 11:08:05 by mlezcano          #+#    #+#             */
-/*   Updated: 2024/01/27 12:35:52 by mlezcano         ###   ########.fr       */
+/*   Updated: 2024/01/27 21:58:47 by mlezcano         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,8 +39,14 @@ void	push_swap(char **argv)
 	free(stack.b);
 }
 
+// void	leaks(void)
+// {
+// 	system("leaks push_swap");
+// }
+
 int	main(int argc, char **argv)
 {
+	//atexit(leaks);
 	if (!(1 == argc || (2 == argc && !argv[1][0])))
 	{
 		argv++;

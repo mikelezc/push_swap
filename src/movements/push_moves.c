@@ -6,13 +6,13 @@
 /*   By: mlezcano <mlezcano@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/21 11:13:26 by mlezcano          #+#    #+#             */
-/*   Updated: 2024/01/26 12:21:53 by mlezcano         ###   ########.fr       */
+/*   Updated: 2024/01/27 21:30:53 by mlezcano         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/push_swap.h"
 
-void	pb(t_stacks *stack, int print)
+void	pb(t_stacks *stack)
 {
 	int	i;
 
@@ -27,18 +27,13 @@ void	pb(t_stacks *stack, int print)
 		stack->size_a--;
 		while (++i < stack->size_a)
 			stack->a[i] = stack->a[i + 1];
-		if (print == OPT)
-			ft_printf("pb\n");
+		ft_printf("pb\n");
 	}
 	else
-	{
-		if (print == STACK)
-			ft_printf("Nothing done. Stack A is empty.\n");
 		return ;
-	}
 }
 
-void	pa(t_stacks *stack, int print)
+void	pa(t_stacks *stack)
 {
 	int	i;
 
@@ -53,13 +48,9 @@ void	pa(t_stacks *stack, int print)
 		stack->size_b--;
 		while (++i < stack->size_b)
 			stack->b[i] = stack->b[i + 1];
-		if (print == OPT)
-			ft_printf("pa\n");
+		ft_printf("pa\n");
 	}
 	else
-	{
-		if (print == STACK)
-			ft_printf("Nothing done. Stack B is empty.\n");
 		return ;
-	}
+
 }
