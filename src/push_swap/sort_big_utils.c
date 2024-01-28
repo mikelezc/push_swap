@@ -6,7 +6,7 @@
 /*   By: mlezcano <mlezcano@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/27 21:00:03 by mlezcano          #+#    #+#             */
-/*   Updated: 2024/01/28 13:17:54 by mlezcano         ###   ########.fr       */
+/*   Updated: 2024/01/28 13:53:18 by mlezcano         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,7 @@ int	ps_sort_small_b(t_stacks *stack, int len)
 
 void	ps_sort_small_a(t_stacks *stack, int len)
 {
-	if (len == 3 && stack->size_a == 3)
+	if (len == 3 && stack->a_len == 3)
 		ps_sort_three_a(stack);
 	else if (len == 2)
 	{

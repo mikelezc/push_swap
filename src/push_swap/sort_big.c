@@ -6,7 +6,7 @@
 /*   By: mlezcano <mlezcano@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/21 11:11:31 by mlezcano          #+#    #+#             */
-/*   Updated: 2024/01/28 13:29:31 by mlezcano         ###   ########.fr       */
+/*   Updated: 2024/01/28 13:55:17 by mlezcano         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ int	ps_quick_sort_b(t_stacks *stack, int len, int counter)
 		else if (++counter)
 			rb(stack);
 	}
-	while (items / 2 != stack->size_b && counter--)
+	while (items / 2 != stack->b_len && counter--)
 		rrb(stack);
 	return (ps_quick_sort_a(stack, items / 2 + items % 2, 0)
 		&& ps_quick_sort_b(stack, items / 2, 0));
@@ -63,7 +63,7 @@ int	ps_quick_sort_a(t_stacks *stack, int len, int counter)
 		else if (++counter)
 			ra(stack);
 	}
-	while (items / 2 + items % 2 != stack->size_a && counter--)
+	while (items / 2 + items % 2 != stack->a_len && counter--)
 		rra(stack);
 	return (ps_quick_sort_a(stack, items / 2 + items % 2, 0)
 		&& ps_quick_sort_b(stack, items / 2, 0));

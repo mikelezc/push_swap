@@ -6,7 +6,7 @@
 /*   By: mlezcano <mlezcano@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/21 11:14:36 by mlezcano          #+#    #+#             */
-/*   Updated: 2024/01/27 21:35:19 by mlezcano         ###   ########.fr       */
+/*   Updated: 2024/01/28 13:54:52 by mlezcano         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,12 +17,12 @@ void	ra(t_stacks *stack)
 	int	tmp;
 	int	i;
 
-	if (stack->size_a == 0 || stack->size_a == 1)
+	if (stack->a_len == 0 || stack->a_len == 1)
 		return ;
 	i = 0;
 	tmp = stack->a[i];
 	i++;
-	while (i < stack->size_a)
+	while (i < stack->a_len)
 	{
 		stack->a[i - 1] = stack->a[i];
 		i++;
@@ -36,12 +36,12 @@ void	rb(t_stacks *stack)
 	int	tmp;
 	int	i;
 
-	if (stack->size_b == 0 || stack->size_b == 1)
+	if (stack->b_len == 0 || stack->b_len == 1)
 		return ;
 	i = 0;
 	tmp = stack->b[i];
 	i++;
-	while (i < stack->size_b)
+	while (i < stack->b_len)
 	{
 		stack->b[i - 1] = stack->b[i];
 		i++;
@@ -55,17 +55,17 @@ void	rr(t_stacks *stack)
 	int	tmp;
 	int	i;
 
-	if (stack->size_a == 0 || stack->size_a == 1
-		|| (stack->size_b == 0 || stack->size_b == 1))
+	if (stack->a_len == 0 || stack->a_len == 1
+		|| (stack->b_len == 0 || stack->b_len == 1))
 		return ;
 	i = 0;
 	tmp = stack->a[i];
-	while (++i < stack->size_a)
+	while (++i < stack->a_len)
 		stack->a[i - 1] = stack->a[i];
 	stack->a[i - 1] = tmp;
 	i = 0;
 	tmp = stack->b[i];
-	while (++i < stack->size_b)
+	while (++i < stack->b_len)
 		stack->b[i - 1] = stack->b[i];
 	stack->b[i - 1] = tmp;
 	ft_printf("rr\n");

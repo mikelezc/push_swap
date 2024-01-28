@@ -6,7 +6,7 @@
 /*   By: mlezcano <mlezcano@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/21 11:15:16 by mlezcano          #+#    #+#             */
-/*   Updated: 2024/01/27 21:36:48 by mlezcano         ###   ########.fr       */
+/*   Updated: 2024/01/28 13:54:59 by mlezcano         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ void	sa(t_stacks *stack)
 {
 	int	tmp;
 
-	if (stack->size_a == 0 || stack->size_a == 1)
+	if (stack->a_len == 0 || stack->a_len == 1)
 		return ;
 	tmp = 0;
 	tmp = stack->a[0];
@@ -29,7 +29,7 @@ void	sb(t_stacks *stack)
 {
 	int	tmp;
 
-	if (stack->size_b == 0 || stack->size_b == 1)
+	if (stack->b_len == 0 || stack->b_len == 1)
 		return ;
 	tmp = 0;
 	tmp = stack->b[0];
@@ -42,8 +42,8 @@ void	ss(t_stacks *stack)
 {
 	int	tmp;
 
-	if (stack->size_a == 0 || stack->size_a == 1
-		|| (stack->size_b == 0 || stack->size_b == 1))
+	if (stack->a_len == 0 || stack->a_len == 1
+		|| (stack->b_len == 0 || stack->b_len == 1))
 		return ;
 	tmp = 0;
 	tmp = stack->a[0];

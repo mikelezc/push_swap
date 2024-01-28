@@ -6,7 +6,7 @@
 /*   By: mlezcano <mlezcano@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/21 11:14:06 by mlezcano          #+#    #+#             */
-/*   Updated: 2024/01/27 21:33:34 by mlezcano         ###   ########.fr       */
+/*   Updated: 2024/01/28 13:54:44 by mlezcano         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,9 +17,9 @@ void	rra(t_stacks *stack)
 	int	tmp;
 	int	i;
 
-	if (stack->size_a == 0 || stack->size_a == 1)
+	if (stack->a_len == 0 || stack->a_len == 1)
 		return ;
-	i = stack->size_a - 1;
+	i = stack->a_len - 1;
 	tmp = stack->a[i];
 	while (i)
 	{
@@ -35,9 +35,9 @@ void	rrb(t_stacks *stack)
 	int	tmp;
 	int	i;
 
-	if (stack->size_b == 0 || stack->size_b == 1)
+	if (stack->b_len == 0 || stack->b_len == 1)
 		return ;
-	i = stack->size_b - 1;
+	i = stack->b_len - 1;
 	tmp = stack->b[i];
 	while (i)
 	{
@@ -53,10 +53,10 @@ void	rrr(t_stacks *stack)
 	int	tmp;
 	int	i;
 
-	if (stack->size_a == 0 || stack->size_a == 1
-		|| (stack->size_b == 0 || stack->size_b == 1))
+	if (stack->a_len == 0 || stack->a_len == 1
+		|| (stack->b_len == 0 || stack->b_len == 1))
 		return ;
-	i = stack->size_a - 1;
+	i = stack->a_len - 1;
 	tmp = stack->a[i];
 	while (i)
 	{
@@ -64,7 +64,7 @@ void	rrr(t_stacks *stack)
 		i--;
 	}
 	stack->a[i] = tmp;
-	i = stack->size_b - 1;
+	i = stack->b_len - 1;
 	tmp = stack->b[i];
 	while (i--)
 		stack->b[i] = stack->b[i - 1];

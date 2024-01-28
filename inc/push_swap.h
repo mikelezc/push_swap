@@ -6,7 +6,7 @@
 /*   By: mlezcano <mlezcano@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/21 11:08:58 by mlezcano          #+#    #+#             */
-/*   Updated: 2024/01/28 13:01:52 by mlezcano         ###   ########.fr       */
+/*   Updated: 2024/01/28 13:54:20 by mlezcano         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,8 +22,8 @@ typedef struct s_stacks
 {
 	int	*a;
 	int	*b;
-	int	size_a;
-	int	size_b;
+	int	a_len;
+	int	b_len;
 }	t_stacks;
 
 # define ASC 0

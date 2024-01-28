@@ -6,7 +6,7 @@
 /*   By: mlezcano <mlezcano@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/21 11:13:26 by mlezcano          #+#    #+#             */
-/*   Updated: 2024/01/27 21:30:53 by mlezcano         ###   ########.fr       */
+/*   Updated: 2024/01/28 13:54:35 by mlezcano         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,16 +16,16 @@ void	pb(t_stacks *stack)
 {
 	int	i;
 
-	if (stack->size_a)
+	if (stack->a_len)
 	{
-		stack->size_b++;
-		i = stack->size_b;
+		stack->b_len++;
+		i = stack->b_len;
 		while (--i > 0)
 			stack->b[i] = stack->b[i - 1];
 		stack->b[0] = stack->a[0];
 		i = -1;
-		stack->size_a--;
-		while (++i < stack->size_a)
+		stack->a_len--;
+		while (++i < stack->a_len)
 			stack->a[i] = stack->a[i + 1];
 		ft_printf("pb\n");
 	}
@@ -37,16 +37,16 @@ void	pa(t_stacks *stack)
 {
 	int	i;
 
-	if (stack->size_b)
+	if (stack->b_len)
 	{
-		stack->size_a++;
-		i = stack->size_a;
+		stack->a_len++;
+		i = stack->a_len;
 		while (--i > 0)
 			stack->a[i] = stack->a[i - 1];
 		stack->a[0] = stack->b[0];
 		i = -1;
-		stack->size_b--;
-		while (++i < stack->size_b)
+		stack->b_len--;
+		while (++i < stack->b_len)
 			stack->b[i] = stack->b[i + 1];
 		ft_printf("pa\n");
 	}

@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   sort.c                                             :+:      :+:    :+:   */
+/*   sort_small.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mlezcano <mlezcano@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/21 11:11:53 by mlezcano          #+#    #+#             */
-/*   Updated: 2024/01/27 21:38:33 by mlezcano         ###   ########.fr       */
+/*   Updated: 2024/01/28 13:53:29 by mlezcano         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ void	ps_sort_three_a(t_stacks *stack)
 
 int	ps_sort(t_stacks *stack, int len)
 {
-	if (ps_is_sorted(stack->a, stack->size_a, ASC) == 0)
+	if (ps_is_sorted(stack->a, stack->a_len, ASC) == 0)
 	{
 		if (len == 2)
 			sa(stack);
