@@ -6,7 +6,7 @@
 /*   By: mlezcano <mlezcano@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/21 11:08:58 by mlezcano          #+#    #+#             */
-/*   Updated: 2024/01/27 21:43:08 by mlezcano         ###   ########.fr       */
+/*   Updated: 2024/01/28 13:01:52 by mlezcano         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,18 +39,18 @@ int		ps_atoi_lim(char *str, int *stack);
 void	ps_is_repeat(int *stack, int size);
 int		ps_is_sorted(int *pile, int size, int order);
 
-//Sort
+//sort_small
 int		ps_sort(t_stacks *stack, int size);
 void	ps_sort_three_a(t_stacks *s);
 
-//quick_sort
+//sort_big
 int		ps_quick_sort_a(t_stacks *stack, int size, int counter);
 int		ps_quick_sort_b(t_stacks *stack, int len, int counter);
 
-//quick_sort_utils
+//sort_big_utils
 
-void	ft_quicksort_3(t_stacks *stack, int len);
-int		ft_sort_small_b(t_stacks *stack, int len);
+void	ps_sort_small_a(t_stacks *stack, int len);
+int		ps_sort_small_b(t_stacks *stack, int len);
 int		ps_find_pivot(int *pivot, int *stack, int size);
 void	ps_bubble_sort(int *tmp_stack, int size);
 int		ps_push(t_stacks *stack, int len, int operation);

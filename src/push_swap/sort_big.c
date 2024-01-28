@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   quick_sort.c                                       :+:      :+:    :+:   */
+/*   sort_big.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mlezcano <mlezcano@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/21 11:11:31 by mlezcano          #+#    #+#             */
-/*   Updated: 2024/01/27 21:39:17 by mlezcano         ###   ########.fr       */
+/*   Updated: 2024/01/28 13:02:00 by mlezcano         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ int	ps_quick_sort_b(t_stacks *stack, int len, int counter)
 			pa(stack);
 	if (len <= 3)
 	{
-		ft_sort_small_b(stack, len);
+		ps_sort_small_b(stack, len);
 		return (1);
 	}
 	items = len;
@@ -48,12 +48,12 @@ int	ps_quick_sort_a(t_stacks *stack, int len, int counter)
 
 	if (ps_is_sorted(stack->a, len, ASC) == 1)
 		return (1);
-	items = len;
 	if (len <= 3)
 	{
-		ft_quicksort_3(stack, len);
+		ps_sort_small_a(stack, len);
 		return (1);
 	}
+	items = len;
 	if (counter == 0 && !ps_find_pivot(&pivot, stack->a, len))
 		return (0);
 	while (len != items / 2 + items % 2)
