@@ -6,11 +6,11 @@
 /*   By: mlezcano <mlezcano@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/27 12:09:10 by mlezcano          #+#    #+#             */
-/*   Updated: 2023/09/27 14:00:17 by mlezcano         ###   ########.fr       */
+/*   Updated: 2024/01/28 21:27:28 by mlezcano         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include"libft.h"
+#include "libft.h"
 
 char	*ft_strtrim(char const *s1, char const *set)
 {

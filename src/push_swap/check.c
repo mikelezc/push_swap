@@ -6,7 +6,7 @@
 /*   By: mlezcano <mlezcano@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/21 19:48:29 by mlezcano          #+#    #+#             */
-/*   Updated: 2024/01/27 21:50:25 by mlezcano         ###   ########.fr       */
+/*   Updated: 2024/01/28 21:20:16 by mlezcano         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ int	ps_is_sorted(int *stack, int size, int order)
 void	ps_error_msg(int *stack)
 {
 	free(stack);
-	ft_printf("Error\n");
+	write(2, "Error\n", 6);
 	exit (1);
 }
 

@@ -6,11 +6,11 @@
 /*   By: mlezcano <mlezcano@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/01 13:14:57 by mlezcano          #+#    #+#             */
-/*   Updated: 2023/10/02 12:12:07 by mlezcano         ###   ########.fr       */
+/*   Updated: 2024/01/28 21:26:34 by mlezcano         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include"libft.h"
+#include "libft.h"
 
 void	ft_lstclear(t_list **lst, void (*del)(void *))
 {

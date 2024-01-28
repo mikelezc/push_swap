@@ -6,11 +6,11 @@
 /*   By: mlezcano <mlezcano@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/26 16:31:06 by mlezcano          #+#    #+#             */
-/*   Updated: 2023/09/27 11:58:34 by mlezcano         ###   ########.fr       */
+/*   Updated: 2024/01/28 21:25:33 by mlezcano         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include"libft.h"
+#include "libft.h"
 
 void	ft_lstadd_back(t_list **lst, t_list *new)
 {
@@ -19,7 +19,7 @@ void	ft_lstadd_back(t_list **lst, t_list *new)
 	if (new)
 	{
 		if (!*lst)
-		{	
+		{
 			*lst = new;
 			return ;
 		}

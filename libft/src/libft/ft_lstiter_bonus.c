@@ -6,11 +6,11 @@
 /*   By: mlezcano <mlezcano@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/01 13:39:02 by mlezcano          #+#    #+#             */
-/*   Updated: 2023/10/02 12:20:01 by mlezcano         ###   ########.fr       */
+/*   Updated: 2024/01/28 21:26:51 by mlezcano         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include"libft.h"
+#include "libft.h"
 
 void	ft_lstiter(t_list *lst, void (*f)(void *))
 {

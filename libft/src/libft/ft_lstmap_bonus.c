@@ -6,11 +6,11 @@
 /*   By: mlezcano <mlezcano@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/01 13:46:38 by mlezcano          #+#    #+#             */
-/*   Updated: 2023/10/02 15:58:49 by mlezcano         ###   ########.fr       */
+/*   Updated: 2024/01/28 21:26:12 by mlezcano         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include"libft.h"
+#include "libft.h"
 
 t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 {
@@ -23,7 +23,7 @@ t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 	{
 		content = f(lst->content);
 		if (!content)
-		{	
+		{
 			ft_lstclear(&newl, del);
 			return (NULL);
 		}

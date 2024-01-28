@@ -6,7 +6,7 @@
 /*   By: mlezcano <mlezcano@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/25 15:00:53 by mlezcano          #+#    #+#             */
-/*   Updated: 2023/09/25 18:36:51 by mlezcano         ###   ########.fr       */
+/*   Updated: 2024/01/28 21:28:15 by mlezcano         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ static void	ft_negative(int *n, int *negative, int *aux)
 	{
 		*negative = 1;
 		*aux = 0;
-	}	
+	}
 }
 
 static int	ft_intlen(int n)

@@ -6,11 +6,11 @@
 /*   By: mlezcano <mlezcano@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/26 15:54:34 by mlezcano          #+#    #+#             */
-/*   Updated: 2023/09/26 16:08:31 by mlezcano         ###   ########.fr       */
+/*   Updated: 2024/01/28 21:27:48 by mlezcano         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include"libft.h"
+#include "libft.h"
 
 int	ft_lstsize(t_list *lst)
 {
