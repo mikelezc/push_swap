@@ -6,11 +6,11 @@
 /*   By: mlezcano <mlezcano@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/28 12:02:15 by mlezcano          #+#    #+#             */
-/*   Updated: 2024/01/28 14:17:34 by mlezcano         ###   ########.fr       */
+/*   Updated: 2024/01/28 14:19:27 by mlezcano         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include"libft.h"
+#include "libft.h"
 
 static size_t	ft_wordcount(char const *s, char c)
 {
