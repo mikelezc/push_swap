@@ -6,7 +6,7 @@
 /*   By: mlezcano <mlezcano@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/21 11:08:58 by mlezcano          #+#    #+#             */
-/*   Updated: 2024/01/28 13:54:20 by mlezcano         ###   ########.fr       */
+/*   Updated: 2024/01/28 19:01:36 by mlezcano         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,8 @@ typedef struct s_stacks
 # define DES 1
 
 //push_swap(main)
-void	push_swap(char **argv);
+void	push_swap(char **argv, int free_flg);
+void	free_str_array(char **str_array);
 
 //Check
 int		ps_arr_len(char **argv);

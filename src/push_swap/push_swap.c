@@ -6,27 +6,26 @@
 /*   By: mlezcano <mlezcano@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/21 11:08:05 by mlezcano          #+#    #+#             */
-/*   Updated: 2024/01/28 14:37:04 by mlezcano         ###   ########.fr       */
+/*   Updated: 2024/01/28 18:59:16 by mlezcano         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/push_swap.h"
 
-/*void free_str_array(char **str_array)
+void	free_str_array(char **str_array)
 {
-    if (str_array)
-    {
-        int i = 0;
-        while (str_array[i])
-        {
-            free(str_array[i]);
-            i++;
-        }
-        free(str_array);
-    }
-}*/
+	int	i;
 
-void	push_swap(char **argv)
+	i = 0;
+	if (str_array)
+	{
+		while (str_array[i])
+			free(str_array[i++]);
+		free(str_array);
+	}
+}
+
+void	push_swap(char **argv, int free_flg)
 {
 	int			i;
 	int			len;
@@ -51,7 +50,8 @@ void	push_swap(char **argv)
 	ps_sort(&stack, len);
 	free(stack.a);
 	free(stack.b);
-	//free_str_array(argv);
+	if (free_flg)
+		free_str_array(argv);
 }
 
 void	leaks(void)
@@ -61,13 +61,19 @@ void	leaks(void)
 
 int	main(int argc, char **argv)
 {
+	int	free_flg;
+
+	free_flg = 0;
 	atexit(leaks);
 	if (!(1 == argc || (2 == argc && !argv[1][0])))
 	{
 		argv++;
 		if (argc == 2)
+		{
 			argv = ft_split(*argv, ' ');
-		push_swap(argv);
+			free_flg = 1;
+		}
+		push_swap(argv, free_flg);
 		return (0);
 	}
 	return (0);
