@@ -1,87 +1,111 @@
-# push_swap_tester
+# 🔢 Push_swap Tester
 
-### Usage
+## This tester contains:
 
-First, go to the root of your repository, which is where we can find your Makefile and do
+### 🔹 Error handling.
 
-```git clone https://github.com/LeoFu9487/push_swap_tester.git && cd push_swap_tester```
+### 🔹 All the cases between 2 and 5 numbers. Check sorting and less movements than the mandatory.
 
+### 🔹 Infinit test of 100 numbers and 500, and prints the moves that your algorithm does.
 
+### 🔹 A test for each case between 1 and 500.
 
+### 🔹 Test if the arguments is already sorted.
 
-To see if you pass the parsing test (ERROR_TEST), identity test, and small stack test (size 3 and 5), run
+### 🔹 Show this min, max and average of all tests.
 
-```bash basic_test.sh```
+### 🔹 Check memory leaks.
 
+### 🔹 Check for the bonus.
 
+## How to use
 
-If you want to see the test cases, check ```trace_basic```
+The push_swap_test.sh or push_swap_test_linux.sh file and the checker_mac or checker_linux should be in the same directory where is the push_swap program. Once the terminal is open and we are in the project directory we executed this command:
 
+If you don't have MacOS, instead of running push_swap_test.sh, execute push_swap_test_linux.sh
 
-After that, you can do medium and big stack test with this command
+```bash push_swap_test.sh``` 
 
-```bash loop.sh <stack size> <loop times>```
+We also can add two arguments that will be the times that we executed the 100 and 500 tests. If you don't put arguments, it will execute 200 for each test by default.
 
-For example, this is the result of the following command
+```bash push_swap_test.sh 250 250```. 
 
-```bash loop.sh 100 10```
+<img width="540" alt="Screen Shot 2022-10-09 at 11 06 42 PM" src="https://user-images.githubusercontent.com/66915274/194779534-cf66c958-46a4-4c6f-bf2f-587af4ad8f8e.png">
 
-![example](https://user-images.githubusercontent.com/70040774/118051305-0b7fa580-b381-11eb-9568-36b44748b10f.png)
+If you would like to execute the bonus. If you don't put arguments, it will execute 200 for each test by default. 
 
-And you can find those generated test cases and the output of your program in ```trace_loop```
+```bash push_swap_test.sh -b```.
 
-### Debug
+And if you want to define the quantity for 100 and 500 tests:
 
-To visualize how your program sorts numbers
+```bash push_swap_test.sh -b 100 100```
 
-```bash debug.sh <numbers>```
+<img width="448" alt="Screen Shot 2022-10-10 at 3 12 48 AM" src="https://user-images.githubusercontent.com/66915274/194788176-19454b9d-61b7-4921-b440-1073c3d22c50.png">
 
-This is the result of the following command
+### ❗️ You can check the sended arguments that makes your program fail with the traces.txt file ❗️
 
-```bash debug.sh 9 4 8 7```
+# 👀 Pushswap visualizer 
 
-![debugsh](https://user-images.githubusercontent.com/70040774/119276699-d6464380-bc1b-11eb-8c03-fe01a11b494f.png)
+Useful tool to visualise your algorithm graphically. Program created by ![ailopez-o](https://github.com/ailopez-o).
 
-To generate random numbers and visualize how your program sorts them, run  
+[VISUALIZER REPO](https://github.com/ailopez-o/42Barcelona-PushSwap-ProChecker)
 
-```bash debug.sh random <stack size>```
+If you want to run it, type the following command. The number represents the number of arguments push_swap will receive.
 
-This is the result of the following command
+```bash push_swap_test.sh -v 500```
 
-```bash debug.sh random 10```
+<img width="597" alt="Screen Shot 2023-01-13 at 5 23 58 PM" src="https://user-images.githubusercontent.com/66915274/212369245-54455057-43d9-42c5-a916-a825ff505813.png">
 
-![example2](https://user-images.githubusercontent.com/70040774/118052309-cceaea80-b382-11eb-8c9d-39675e9143ba.png)
+If you want to run the viewer with specific arguments use the following command followed by the desired arguments in double quotes.
 
-To generate a permutation of numbers from 0 to n-1
+```bash push_swap_test.sh -v2 "1 4 2 3 5"```
 
-```bash debug.sh clean <stack size>```
+## Controls 🕹
 
-this is the result of the following command
+|KEY|ACTION|
+|---|---|
+|`I`| Step by Step instructions|
+|`S`| Run all the instructions|
+|`P`| Pause |
+|`1`| exec 'sa'|
+|`2`| exec 'sb'|
+|`3`| exec 'ra'|
+|`4`| exec 'rb'|
+|`5`| exec 'rra'|
+|`6`| exec 'rrb'|
+|`7`| exec 'pa'|
+|`8`| exec 'pb'|
+|`ESC ❌`|Close|
 
-```bash debug.sh clean 10```
+Extra acknowledgements for [@nunom4chado](https://github.com/nunom4chado) for implementing a Linux version of the tester.
 
-![example3](https://user-images.githubusercontent.com/70040774/118052350-daa07000-b382-11eb-95e4-c8715f70cc05.png)
+# I hope you liked and helped! 😁
 
-### Result 
+# Maybe it would interest you!
 
-OK : Answer Correct
+### - To check my progression in 42 common core ↙️
 
-KO : Wrong Answer
+[HERE](https://github.com/gemartin99/42cursus)
 
-TLE : Time Limit Exceeded, please check if there is an infinite loop in your program (or you can edit the variable ```TIME_LIMIT``` in *.sh file)
+### - My 42 intra profile ↙️
+[HERE](https://profile.intra.42.fr/users/gemartin)
 
-ERROR : Unknown Instructions
+# Contact 📥
 
-leaks command not found : can't test your memory with command ```leaks``` (If you're using MacOS but still receiving this, remove ```-fsanitize=address``` flag in your Makefile )
+### Contact with me if you fine some errors! That will help future students! 😁
 
-### Clean
+◦ Email: gemartin@student.42barcelona.com
 
-```bash clean.sh```
+◦ Linkedin: https://www.linkedin.com/in/gemartin99/
 
-can remove every test case and output file
+# Ailopez Contact 📬
 
-### Contact : 
+### Contact him if you find any errors in the display! It may help future students! 😁
 
-yfu@student.42lyon.fr
+◦ Email: ailopez-@student.42barcelona.com
 
-or DM me on the slack
+◦ Linkedin: https://www.linkedin.com/in/aitor-lopez-de-audicana-70125b38/
+
+◦ Github: https://github.com/ailopez-o
+
+◦ His 42 intra profile: https://profile.intra.42.fr/users/ailopez-
