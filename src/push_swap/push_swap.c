@@ -6,11 +6,25 @@
 /*   By: mlezcano <mlezcano@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/21 11:08:05 by mlezcano          #+#    #+#             */
-/*   Updated: 2024/01/28 14:08:00 by mlezcano         ###   ########.fr       */
+/*   Updated: 2024/01/28 14:37:04 by mlezcano         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/push_swap.h"
+
+/*void free_str_array(char **str_array)
+{
+    if (str_array)
+    {
+        int i = 0;
+        while (str_array[i])
+        {
+            free(str_array[i]);
+            i++;
+        }
+        free(str_array);
+    }
+}*/
 
 void	push_swap(char **argv)
 {
@@ -37,6 +51,7 @@ void	push_swap(char **argv)
 	ps_sort(&stack, len);
 	free(stack.a);
 	free(stack.b);
+	//free_str_array(argv);
 }
 
 void	leaks(void)
