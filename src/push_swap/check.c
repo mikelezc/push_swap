@@ -6,39 +6,28 @@
 /*   By: mlezcano <mlezcano@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/21 19:48:29 by mlezcano          #+#    #+#             */
-/*   Updated: 2024/01/28 21:20:16 by mlezcano         ###   ########.fr       */
+/*   Updated: 2024/01/29 21:41:43 by mlezcano         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/push_swap.h"
 
-int	ps_is_sorted(int *stack, int size, int order)
+int	ps_is_sorted(int *stack, int len, int direction)
 {
 	int	i;
 
-	if (order == ASC)
+	i = 1;
+
+	while (i < len)
 	{
-		i = 1;
-		while (i < size)
-		{
-			if (stack[i - 1] > stack[i])
-				return (0);
-			i++;
-		}
-		return (1);
+		if ((direction == ASC && stack[i - 1] > stack[i])
+			|| (direction == DES && stack[i - 1] < stack[i]))
+			return (0);
+		i++;
 	}
-	else
-	{
-		i = 1;
-		while (i < size)
-		{
-			if (stack[i - 1] < stack[i])
-				return (0);
-			i++;
-		}
-		return (1);
-	}
+	return (1);
 }
+
 
 void	ps_error_msg(int *stack)
 {
@@ -47,23 +36,22 @@ void	ps_error_msg(int *stack)
 	exit (1);
 }
 
-void	ps_is_repeat(int *stack, int size)
+void	ps_is_repeat(int *stack, int len)
 {
 	int	i;
 	int	j;
 
 	i = 0;
-	j = 1;
-	while (i < size)
+	while (i < len)
 	{
-		while (j < size)
+		j = i + 1;
+		while (j < len)
 		{
 			if (stack[i] == stack[j])
 				ps_error_msg(stack);
 			j++;
 		}
 		i++;
-		j = i + 1;
 	}
 }
 

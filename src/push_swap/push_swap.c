@@ -6,7 +6,7 @@
 /*   By: mlezcano <mlezcano@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/21 11:08:05 by mlezcano          #+#    #+#             */
-/*   Updated: 2024/01/29 08:37:50 by mlezcano         ###   ########.fr       */
+/*   Updated: 2024/01/29 22:24:20 by mlezcano         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,51 +33,56 @@ int	ps_plus_alone(char *str)
 	return (0);
 }
 
-void	free_str_array(char **str_array)
+void	ps_free_arr(char **arr)
 {
 	int	i;
 
 	i = 0;
-	if (str_array)
+	if (arr)
 	{
-		while (str_array[i])
-			free(str_array[i++]);
-		free(str_array);
+		while (arr[i])
+			free(arr[i++]);
+		free(arr);
 	}
+}
+
+void	ps_free_stacks(int *a, int *b)
+{
+	if (a)
+		free(a);
+	if (b)
+		free(b);
 }
 
 void	push_swap(char **argv, int free_flg)
 {
-	int			i;
 	int			len;
 	t_stacks	stack;
+	int			i;
 
-	i = -1;
 	len = ps_arr_len(argv);
 	stack.a = malloc(len * sizeof(int));
-	if (!stack.a)
-		return ;
-	stack.a_len = len;
 	stack.b = malloc(len * sizeof(int));
-	if (!stack.b)
+	if (!stack.a || !stack.b)
 	{
-		free(stack.a);
+		ps_free_stacks(stack.a, stack.b);
 		return ;
 	}
+	stack.a_len = len;
 	stack.b_len = 0;
+	i = -1;
 	while (++i < len)
 		stack.a[i] = ps_atoi_lim(argv[i], stack.a);
 	ps_is_repeat(stack.a, len);
 	ps_sort(&stack, len);
-	free(stack.a);
-	free(stack.b);
+	ps_free_stacks(stack.a, stack.b);
 	if (free_flg)
-		free_str_array(argv);
+		ps_free_arr(argv);
 }
 
 // void	leaks(void)
 // {
-// 	system("leaks push_swap");
+//  	system("leaks push_swap");
 // }
 
 int	main(int argc, char **argv)

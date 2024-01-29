@@ -6,7 +6,7 @@
 /*   By: mlezcano <mlezcano@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/21 11:08:58 by mlezcano          #+#    #+#             */
-/*   Updated: 2024/01/28 21:13:05 by mlezcano         ###   ########.fr       */
+/*   Updated: 2024/01/29 22:22:47 by mlezcano         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,15 +32,16 @@ typedef struct s_stacks
 
 //push_swap(main)
 void	push_swap(char **argv, int free_flg);
-void	free_str_array(char **str_array);
+void	ps_free_arr(char **arr);
 int		ps_plus_alone(char *str);
+void	ps_free_stacks(int *a, int *b);
 
 //Check
 int		ps_arr_len(char **argv);
 void	ps_error_msg(int *stack);
 int		ps_atoi_lim(char *str, int *stack);
-void	ps_is_repeat(int *stack, int size);
-int		ps_is_sorted(int *pile, int size, int order);
+void	ps_is_repeat(int *stack, int len);
+int		ps_is_sorted(int *pile, int len, int direction);
 
 //sort_small
 int		ps_sort(t_stacks *stack, int size);
