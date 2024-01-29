@@ -6,7 +6,7 @@
 /*   By: mlezcano <mlezcano@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/21 11:11:31 by mlezcano          #+#    #+#             */
-/*   Updated: 2024/01/28 13:55:17 by mlezcano         ###   ########.fr       */
+/*   Updated: 2024/01/29 10:14:48 by mlezcano         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@ int	ps_quick_sort_b(t_stacks *stack, int len, int counter)
 	int	pivot;
 	int	items;
 
+	items = len;
 	if (counter == 0 && ps_is_sorted(stack->b, len, DES) == 1)
 		while (len--)
 			pa(stack);
@@ -25,7 +26,6 @@ int	ps_quick_sort_b(t_stacks *stack, int len, int counter)
 		ps_sort_small_b(stack, len);
 		return (1);
 	}
-	items = len;
 	if (!ps_find_pivot(&pivot, stack->b, len))
 		return (0);
 	while (len != items / 2)
@@ -46,6 +46,7 @@ int	ps_quick_sort_a(t_stacks *stack, int len, int counter)
 	int	pivot;
 	int	items;
 
+	items = len;
 	if (ps_is_sorted(stack->a, len, ASC) == 1)
 		return (1);
 	if (len <= 3)
@@ -53,7 +54,6 @@ int	ps_quick_sort_a(t_stacks *stack, int len, int counter)
 		ps_sort_small_a(stack, len);
 		return (1);
 	}
-	items = len;
 	if (counter == 0 && !ps_find_pivot(&pivot, stack->a, len))
 		return (0);
 	while (len != items / 2 + items % 2)
@@ -65,7 +65,7 @@ int	ps_quick_sort_a(t_stacks *stack, int len, int counter)
 	}
 	while (items / 2 + items % 2 != stack->a_len && counter--)
 		rra(stack);
-	return (ps_quick_sort_a(stack, items / 2 + items % 2, 0)
-		&& ps_quick_sort_b(stack, items / 2, 0));
+	ps_quick_sort_a(stack, items / 2 + items % 2, 0);
+	ps_quick_sort_b(stack, items / 2, 0);
 	return (1);
 }
