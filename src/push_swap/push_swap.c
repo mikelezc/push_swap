@@ -6,7 +6,7 @@
 /*   By: mlezcano <mlezcano@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/21 11:08:05 by mlezcano          #+#    #+#             */
-/*   Updated: 2024/01/28 21:17:11 by mlezcano         ###   ########.fr       */
+/*   Updated: 2024/01/29 08:37:50 by mlezcano         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,11 +87,6 @@ int	main(int argc, char **argv)
 
 	free_flg = 0;
 	//atexit(leaks);
-	if (!argv[1][0])
-	{
-		write(2, "Error\n", 6);
-		return (0);
-	}
 	if (!(1 == argc || (2 == argc && !argv[1][0])))
 	{
 		argv++;
