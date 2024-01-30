@@ -6,17 +6,17 @@
 /*   By: mlezcano <mlezcano@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/27 21:00:03 by mlezcano          #+#    #+#             */
-/*   Updated: 2024/01/30 13:35:26 by mlezcano         ###   ########.fr       */
+/*   Updated: 2024/01/30 14:20:17 by mlezcano         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/push_swap.h"
 
-int	ps_push(t_stacks *stack, int len, int operation)
+int	ps_push(t_stacks *stack, int len, char dir)
 {
-	if (operation == 0)
+	if (dir == 'b')
 		pb(stack);
-	else
+	if (dir == 'a')
 		pa(stack);
 	len--;
 	return (len);
@@ -42,7 +42,7 @@ int	ps_sort_small_b(t_stacks *stack, int len)
 				sa(stack);
 			else if (len == 1 || (len >= 2 && stack->b[0] > stack->b[1])
 				|| (len == 3 && stack->b[0] > stack->b[2]))
-				len = ps_push(stack, len, 1);
+				len = ps_push(stack, len, 'a');
 			else
 				sb(stack);
 		}
@@ -52,24 +52,25 @@ int	ps_sort_small_b(t_stacks *stack, int len)
 
 void	ps_sort_small_a(t_stacks *stack, int len)
 {
+	int	*a;
+
+	a = stack->a;
 	if (len == 3 && stack->a_len == 3)
 		ps_sort_three_a(stack);
 	else if (len == 2)
 	{
-		if (stack->a[0] > stack->a[1])
+		if (a[0] > a[1])
 			sa(stack);
 	}
 	else if (len == 3)
 	{
-		while (len != 3 || !(stack->a[0] < stack->a[1]
-				&& stack->a[1] < stack->a[2]))
+		while (len != 3 || !(a[0] < a[1] && a[1] < a[2]))
 		{
-			if (len == 3 && stack->a[0] > stack->a[1] && stack->a[2])
+			if (len == 3 && a[0] > a[1] && a[2])
 				sa(stack);
-			else if (len == 3 && !(stack->a[2] > stack->a[0]
-					&& stack->a[2] > stack->a[1]))
-				len = ps_push(stack, len, 0);
-			else if (stack->a[0] > stack->a[1])
+			else if (len == 3 && !(a[2] > a[0] && a[2] > a[1]))
+				len = ps_push(stack, len, 'b');
+			else if (a[0] > a[1])
 				sa(stack);
 			else if (len++)
 				pa(stack);

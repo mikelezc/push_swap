@@ -6,7 +6,7 @@
 /*   By: mlezcano <mlezcano@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/21 11:08:58 by mlezcano          #+#    #+#             */
-/*   Updated: 2024/01/29 22:22:47 by mlezcano         ###   ########.fr       */
+/*   Updated: 2024/01/30 14:06:31 by mlezcano         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,7 @@ void	ps_sort_small_a(t_stacks *stack, int len);
 int		ps_sort_small_b(t_stacks *stack, int len);
 int		ps_find_pivot(int *pivot, int *stack, int size);
 void	ps_bubble_sort(int *tmp_stack, int size);
-int		ps_push(t_stacks *stack, int len, int operation);
+int		ps_push(t_stacks *stack, int len, char dir);
 
 //movements
 void	sa(t_stacks *stack);
