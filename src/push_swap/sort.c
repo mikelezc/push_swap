@@ -6,7 +6,7 @@
 /*   By: mlezcano <mlezcano@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/21 11:11:53 by mlezcano          #+#    #+#             */
-/*   Updated: 2024/01/28 13:53:29 by mlezcano         ###   ########.fr       */
+/*   Updated: 2024/01/30 13:50:09 by mlezcano         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,27 +14,25 @@
 
 void	ps_sort_three_a(t_stacks *stack)
 {
-	if (stack->a[0] > stack->a[1] && stack->a[0]
-		< stack->a[2] && stack->a[1] < stack->a[2])
+	int	*a;
+
+	a = stack->a;
+	if (a[0] > a[1] && a[0] < a[2] && a[1] < a[2])
 		sa(stack);
-	if (stack->a[0] > stack->a[1] && stack->a[0]
-		> stack->a[2] && stack->a[1] > stack->a[2])
+	if (a[0] < a[1] && a[0] > a[2] && a[1] > a[2])
+		rra(stack);
+	if (a[0] > a[1] && a[0] > a[2] && a[1] < a[2])
+		ra(stack);
+	if (a[0] > a[1] && a[0] > a[2] && a[1] > a[2])
 	{
 		sa(stack);
 		rra(stack);
 	}
-	if (stack->a[0] > stack->a[1] && stack->a[0]
-		> stack->a[2] && stack->a[1] < stack->a[2])
-		ra(stack);
-	if (stack->a[0] < stack->a[1] && stack->a[0]
-		< stack->a[2] && stack->a[1] > stack->a[2])
+	if (a[0] < a[1] && a[0] < a[2] && a[1] > a[2])
 	{
 		sa(stack);
 		ra(stack);
 	}
-	if (stack->a[0] < stack->a[1] && stack->a[0]
-		> stack->a[2] && stack->a[1] > stack->a[2])
-		rra(stack);
 }
 
 int	ps_sort(t_stacks *stack, int len)

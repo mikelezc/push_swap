@@ -6,7 +6,7 @@
 /*   By: mlezcano <mlezcano@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/21 11:08:05 by mlezcano          #+#    #+#             */
-/*   Updated: 2024/01/29 22:24:20 by mlezcano         ###   ########.fr       */
+/*   Updated: 2024/01/30 13:31:02 by mlezcano         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,7 +65,8 @@ void	push_swap(char **argv, int free_flg)
 	stack.b = malloc(len * sizeof(int));
 	if (!stack.a || !stack.b)
 	{
-		ps_free_stacks(stack.a, stack.b);
+		if (!stack.b)
+			free(stack.a);
 		return ;
 	}
 	stack.a_len = len;

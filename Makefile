@@ -6,7 +6,7 @@
 #    By: mlezcano <mlezcano@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/01/21 11:17:56 by mlezcano          #+#    #+#              #
-#    Updated: 2024/01/28 10:02:16 by mlezcano         ###   ########.fr        #
+#    Updated: 2024/01/30 13:50:56 by mlezcano         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -52,7 +52,7 @@ PSW_DIR		=	push_swap/
 MOV_DIR		=	movements/
 
 #src files
-MAND_FILES	=	push_swap sort_small sort_big sort_big_utils check
+MAND_FILES	=	push_swap sort sort_big sort_big_utils check
 MOV_FILES	=	swap_moves rotation_moves rev_rot_moves push_moves
 
 SRC_FILES	=	$(addprefix $(PSW_DIR), $(MAND_FILES))

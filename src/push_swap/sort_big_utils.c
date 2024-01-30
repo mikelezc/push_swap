@@ -6,7 +6,7 @@
 /*   By: mlezcano <mlezcano@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/27 21:00:03 by mlezcano          #+#    #+#             */
-/*   Updated: 2024/01/28 13:53:18 by mlezcano         ###   ########.fr       */
+/*   Updated: 2024/01/30 13:35:26 by mlezcano         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,8 @@ int	ps_sort_small_b(t_stacks *stack, int len)
 	}
 	else if (len == 3)
 	{
-		while (len || !(stack->a[0] < stack->a[1] && stack->a[1] < stack->a[2]))
+		while (len || !(stack->a[0] < stack->a[1]
+				&& stack->a[1] < stack->a[2]))
 		{
 			if (len == 1 && stack->a[0] > stack->a[1])
 				sa(stack);
@@ -102,20 +103,20 @@ void	ps_bubble_sort(int *tmp_stack, int size)
 
 int	ps_find_pivot(int *pivot, int *stack, int len)
 {
-	int		*tmp_stack;
+	int		*stack_buffer;
 	int		i;
 
-	tmp_stack = (int *)malloc(len * sizeof(int));
-	if (!tmp_stack)
+	stack_buffer = (int *)malloc(len * sizeof(int));
+	if (!stack_buffer)
 		return (0);
 	i = 0;
 	while (i < len)
 	{
-		tmp_stack[i] = stack[i];
+		stack_buffer[i] = stack[i];
 		i++;
 	}
-	ps_bubble_sort(tmp_stack, len);
-	*pivot = tmp_stack[len / 2];
-	free(tmp_stack);
+	ps_bubble_sort(stack_buffer, len);
+	*pivot = stack_buffer[len / 2];
+	free(stack_buffer);
 	return (1);
 }
