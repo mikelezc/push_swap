@@ -6,7 +6,7 @@
 /*   By: mlezcano <mlezcano@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/21 11:13:26 by mlezcano          #+#    #+#             */
-/*   Updated: 2024/01/30 14:25:26 by mlezcano         ###   ########.fr       */
+/*   Updated: 2024/01/31 13:32:51 by mlezcano         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,8 +29,6 @@ void	pb(t_stacks *stack)
 			stack->a[i] = stack->a[i + 1];
 		ft_printf("pb\n");
 	}
-	else
-		return ;
 }
 
 void	pa(t_stacks *stack)
@@ -50,6 +48,4 @@ void	pa(t_stacks *stack)
 			stack->b[i] = stack->b[i + 1];
 		ft_printf("pa\n");
 	}
-	else
-		return ;
 }
