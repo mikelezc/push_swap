@@ -6,7 +6,7 @@
 /*   By: mlezcano <mlezcano@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/21 11:08:58 by mlezcano          #+#    #+#             */
-/*   Updated: 2024/01/31 12:48:53 by mlezcano         ###   ########.fr       */
+/*   Updated: 2024/02/01 13:04:32 by mlezcano         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,12 +36,17 @@ void	ps_free_arr(char **arr);
 int		ps_plus_alone(char *str);
 void	ps_free_stacks(int *a, int *b);
 
-//Check
+//check
 int		ps_arr_len(char **argv);
-void	ps_error_msg(int *stack);
+
 int		ps_atoi_lim(char *str, int *stack);
 void	ps_is_repeat(int *stack, int len);
 int		ps_is_sorted(int *pile, int len, int direction);
+
+//check_utils 
+void	ps_error_msg(int *stack);
+int		ps_all_zeros(char *nbr);
+int		ps_get_nbr(char *nbr, int *stack);
 
 //sort_small
 int		ps_sort(t_stacks *stack, int size);

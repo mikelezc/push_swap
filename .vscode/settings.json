@@ -16,6 +16,8 @@
 		"unordered_set": "c",
 		"utility": "c",
 		"vector": "c",
-		"algorithm": "c"
+		"algorithm": "c",
+		"sstream": "c",
+		"ratio": "c"
 	}
 }

@@ -6,7 +6,7 @@
 /*   By: mlezcano <mlezcano@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/21 19:48:29 by mlezcano          #+#    #+#             */
-/*   Updated: 2024/01/29 21:41:43 by mlezcano         ###   ########.fr       */
+/*   Updated: 2024/02/01 13:02:58 by mlezcano         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,14 +26,6 @@ int	ps_is_sorted(int *stack, int len, int direction)
 		i++;
 	}
 	return (1);
-}
-
-
-void	ps_error_msg(int *stack)
-{
-	free(stack);
-	write(2, "Error\n", 6);
-	exit (1);
 }
 
 void	ps_is_repeat(int *stack, int len)
@@ -57,26 +49,26 @@ void	ps_is_repeat(int *stack, int len)
 
 int	ps_atoi_lim(char *str, int *stack)
 {
-	unsigned int		i;
-	int					sign;
-	unsigned long int	num;
+	int				i;
+	int				sign;
+	unsigned int	num;
+	int				plus;
 
 	i = 0;
 	num = 0;
 	sign = 1;
+	plus = 0;
 	while ((str[i] >= 9 && str[i] <= 13) || str[i] == ' ')
 		i++;
 	if (str[i] == '-')
 		sign = -1;
+	if (str[i] == '+')
+		plus = 1;
 	if (str[i] == '+' || str[i] == '-')
 		i++;
-	while (str[i])
-	{
-		if (str[i] < '0' || str[i] > '9')
-			ps_error_msg(stack);
-		num = (str[i] - '0') + (num * 10);
-		i++;
-	}
+	if (plus == 1 && ps_all_zeros(&str[i]))
+		ps_error_msg(stack);
+	num = ps_get_nbr(&str[i], stack);
 	if ((num > 2147483648 && sign == -1) || (num > 2147483647 && sign == 1)
 		|| (num == 0 && sign == -1))
 		ps_error_msg(stack);
